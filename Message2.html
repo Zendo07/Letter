@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dearest Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="message-styles.css">
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+    
+    <a href="envelopes.html" class="back-button">← Back to Envelopes</a>
+
+    <div class="message-page">
+        <div class="letter-paper">
+            <div class="letter-header">
+                <div class="wax-seal">💕</div>
+                <h1>My Love</h1>
+            </div>
+            
+            <div class="letter-content">
+                <p class="message-large">Sorry sa lahat❤️</p>
+                
+                <p class="message-paragraph">
+                    Gusto ko lang mag-pasorry sa nagawa ko kagabi, na-realize ko na mali yung awayin ka ulit sa special occasion at nag-promise ako dati sayo na hindi na ma-uulit yung attitude na meron ako sa birthday mo noon.
+                </p>
+                
+                <p class="message-paragraph">
+                    Sobra kong pinagsisihan yung pag-kakamali ko at ginawa ko talaga ito para makabawi man lang ako sayo, sana mapatawad mo ako. Hindi ko sinasadya na sirain ang araw ng mga important occasion, sadyang nadadala lang din sa emosyon.
+                </p>
+                
+                <p class="message-paragraph">
+                    Kagabi ko pa talaga ito ginagawa, nong di na kita macall inisip ko na gawan ka nalang ng message. Kaya late na din ako nagising kanina pero sadly ngayon ko palang natapos.
+                </p>
+                
+                <div class="letter-signature">
+                    <p>Sincerely sorry,</p>
+                    <p class="signature-name">Your Love ❤️</p>
+                </div>
+            </div>
+
+            <!-- Modern Spotify-Style Audio Player -->
+            <div class="spotify-player">
+                <div class="player-artwork">
+                    <div class="artwork-image">💌</div>
+                </div>
+                <div class="player-details">
+                    <div class="track-info">
+                        <div class="track-name">My Love Message</div>
+                        <div class="track-artist">For You, My Baby</div>
+                    </div>
+                    <div class="player-controls">
+                        <div class="control-buttons">
+                            <button class="control-btn skip-back" onclick="seekBackward()">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"/>
+                                </svg>
+                            </button>
+                            <button class="control-btn play-btn-main" onclick="toggleAudio()" id="playBtnMain">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" id="playIcon">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            <button class="control-btn skip-forward" onclick="seekForward()">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="progress-container">
+                            <span class="time-label" id="currentTimeLabel">0:00</span>
+                            <div class="progress-track" onclick="seekToPosition(event)">
+                                <div class="progress-bar-fill" id="progressBar">
+                                    <div class="progress-handle"></div>
+                                </div>
+                            </div>
+                            <span class="time-label" id="durationLabel">0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer">
+        <source src="ngiti.m4a" type="audio/mpeg">
+    </audio>
+
+    <script src="message-script.js"></script>
+</body>
+</html>

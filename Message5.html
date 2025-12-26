@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My love & Chooey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="message-styles.css">
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+    
+    <a href="envelopes.html" class="back-button">← Back to Envelopes</a>
+
+    <div class="message-page">
+        <div class="letter-paper">
+            <div class="letter-header">
+                <div class="wax-seal">💝</div>
+                <h1>My love & Chooey</h1>
+            </div>
+            
+            <div class="letter-content">
+                <div class="gallery-grid-page">
+                    <div class="gallery-item-page">
+                        <img src="C1.jpg" alt="Memory 1" class="gallery-image">
+                    </div>
+                    <div class="gallery-item-page">
+                        <img src="C2.jpg" alt="Memory 2" class="gallery-image">
+                    </div>
+                    <div class="gallery-item-page">
+                        <img src="C3.jpg" alt="Memory 3" class="gallery-image">
+                    </div>
+                    <div class="gallery-item-page">
+                        <img src="L1.jpg" alt="Memory 4" class="gallery-image">
+                    </div>
+                    <div class="gallery-item-page">
+                        <img src="L2.jpg" alt="Memory 5" class="gallery-image">
+                    </div>
+                    <div class="gallery-item-page">
+                        <img src="L3.jpg" alt="Memory 6" class="gallery-image">
+                    </div>
+                </div>
+                
+                <div class="gallery-note-page">
+                    <p>So cutie ni chooey talaga 💕</p>
+                    <p>Mahal ko kayong dalawa Ingat kayo always</p>
+                </div>
+
+                <!-- Time Together Counter -->
+                <div class="time-together-section">
+                    <div class="time-together-header">
+                        <p class="anniversary-date">Since June 3, 2023</p>
+                    </div>
+                    <div class="time-counter-grid" id="timeCounterGrid">
+                        <div class="time-box">
+                            <div class="time-value" id="years">0</div>
+                            <div class="time-label">Years</div>
+                        </div>
+                        <div class="time-box">
+                            <div class="time-value" id="months">0</div>
+                            <div class="time-label">Months</div>
+                        </div>
+                        <div class="time-box">
+                            <div class="time-value" id="days">0</div>
+                            <div class="time-label">Days</div>
+                        </div>
+                        <div class="time-box">
+                            <div class="time-value" id="hours">0</div>
+                            <div class="time-label">Hours</div>
+                        </div>
+                        <div class="time-box">
+                            <div class="time-value" id="minutes">0</div>
+                            <div class="time-label">Minutes</div>
+                        </div>
+                        <div class="time-box pulse">
+                            <div class="time-value" id="seconds">0</div>
+                            <div class="time-label">Seconds</div>
+                        </div>
+                    </div>
+                    <div class="forever-message">
+                        <span class="infinity">∞</span>
+                        <span>Forever & Always</span>
+                        <span class="infinity">∞</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="message-script.js"></script>
+    <script>
+        // Real-time counter for time together
+        const anniversaryDate = new Date('2023-06-03T00:00:00');
+
+        function updateTimeCounter() {
+            const now = new Date();
+            const diff = now - anniversaryDate;
+
+            // Calculate time units
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            
+            // Calculate years and months
+            let years = now.getFullYear() - anniversaryDate.getFullYear();
+            let months = now.getMonth() - anniversaryDate.getMonth();
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Remaining calculations
+            const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const remainingDays = totalDays - (years * 365 + Math.floor(years / 4)) - (months * 30);
+            const remainingHours = hours % 24;
+            const remainingMinutes = minutes % 60;
+            const remainingSeconds = seconds % 60;
+
+            // Update DOM
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = remainingDays;
+            document.getElementById('hours').textContent = remainingHours;
+            document.getElementById('minutes').textContent = remainingMinutes;
+            document.getElementById('seconds').textContent = remainingSeconds;
+        }
+
+        // Update every second
+        updateTimeCounter();
+        setInterval(updateTimeCounter, 1000);
+
+        // Floating hearts animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = Math.random() > 0.5 ? '❤️' : '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            const bgAnimation = document.getElementById('bgAnimation');
+            if (bgAnimation) {
+                bgAnimation.appendChild(heart);
+                setTimeout(() => heart.remove(), 10000);
+            }
+        }
+
+        setInterval(createHeart, 1000);
+    </script>
+</body>
+</html>

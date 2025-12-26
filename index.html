@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Love</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <audio id="welcomeSound" preload="auto">
+        <source src="welcome-sounds.mp3" type="audio/mpeg">
+    </audio>   
+
+    <div class="bg-animation" id="bgAnimation"></div>
+    <div class="nav-menu" id="navMenu">
+        <div class="time-counter-card">
+            <div class="counter-header">
+                <div class="heart-pulse">💕</div>
+                <div class="anniversary-text">
+                    <div class="label">Our Love Story</div>
+                    <div class="date">Since June 3, 2023</div>
+                </div>
+            </div>
+            <div class="counter-body">
+                <div class="time-grid" id="timeCounter"></div>
+            </div>
+            <div class="counter-footer">
+                <div class="infinity-symbol">∞</div>
+                <div class="forever-text">Forever & Always</div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio1">
+        <source src="your-voice-message-1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audio2">
+        <source src="your-voice-message-2.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-container">
+        <div class="hero-section" id="heroSection">
+            <!-- Delivery Animation -->
+            <div class="delivery-scene" id="deliveryScene">
+                <div class="road"></div>
+                <div class="rider-container" id="riderContainer">
+                    <div class="rider">
+                        <div class="rider-head">😊</div>
+                        <div class="rider-body"></div>
+                        <div class="motorcycle">
+                            <div class="bike-body"></div>
+                            <div class="wheel wheel-front"></div>
+                            <div class="wheel wheel-back"></div>
+                        </div>
+                        <div class="letter-package">📦💌</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mailbox (appears after delivery) -->
+            <div class="mailbox-container" id="mailboxContainer" style="display: none;">
+                <div class="mailbox">
+                    <div class="mailbox-flag">🚩</div>
+                    <div class="mailbox-body">
+                        <div class="mailbox-door" id="mailboxDoor">
+                            <div class="mailbox-handle"></div>
+                        </div>
+                        <div class="mailbox-letter">💌</div>
+                    </div>
+                    <div class="mailbox-post"></div>
+                </div>
+                <h1>You've Got Mail!</h1>
+                <p class="subtitle">A special delivery awaits you...</p>
+                <button class="cta-button" onclick="openMailboxModal()">
+                    <span>Open Mailbox</span>
+                    <span>📬</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Date Validation Modal -->
+        <div class="modal-overlay" id="dateModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🔒 Unlock Your Messages</h2>
+                    <p>Please enter our anniversary date to open</p>
+                </div>
+                <div class="modal-body">
+                    <div class="date-input-group">
+                        <label for="dateInput">Anniversary Date:</label>
+                        <input 
+                            type="date" 
+                            id="dateInput" 
+                            class="date-input"
+                            placeholder="MM/DD/YYYY"
+                        >
+
+                    </div>
+                    <div class="error-message" id="errorMessage"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-button cancel-button" onclick="closeModal()">Cancel</button>
+                    <button class="modal-button submit-button" onclick="validateDate()">
+                        <span>Unlock</span>
+                        <span>❤️</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

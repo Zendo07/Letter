@@ -1,0 +1,52 @@
+const anniversaryDate = new Date('2023-06-03T00:00:00');
+
+function updateTime() {
+    const now = new Date();
+    const diff = now - anniversaryDate;
+    
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    const timeCounter = document.getElementById('timeCounter');
+    if (timeCounter) {
+        timeCounter.innerHTML = `
+            <div class="time-unit">
+                <span class="time-value">${d}</span>
+                <span class="time-label">Days</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value">${h.toString().padStart(2, '0')}</span>
+                <span class="time-label">Hours</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value">${m.toString().padStart(2, '0')}</span>
+                <span class="time-label">Minutes</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value">${s.toString().padStart(2, '0')}</span>
+                <span class="time-label">Seconds</span>
+            </div>
+        `;
+    }
+}
+
+updateTime();
+setInterval(updateTime, 1000);
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.textContent = Math.random() > 0.5 ? '❤️' : '💕';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+    heart.style.animationDelay = Math.random() * 2 + 's';
+    const bgAnimation = document.getElementById('bgAnimation');
+    if (bgAnimation) {
+        bgAnimation.appendChild(heart);
+        setTimeout(() => heart.remove(), 10000);
+    }
+}
+
+setInterval(createHeart, 1000);
